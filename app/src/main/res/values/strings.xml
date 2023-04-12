@@ -8,4 +8,11 @@
     <string name="to_do_list">To-do list!</string>
     <string name="here_you_can_write_down_n_something_important_nor_make_a_schedule_for_tomorrow">
         Here_you_can_write_\ndown_something_important_or_make_\na_schedule_for_tomorrow:)</string>
+    <string name="note">Note</string>
+    <string name="contact">Contact</string>
+    <string name="profile">Profile</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
 </resources>

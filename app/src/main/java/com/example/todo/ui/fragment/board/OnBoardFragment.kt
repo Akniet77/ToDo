@@ -21,9 +21,16 @@ class OnBoardFragment : BaseFragment<FragmentOnBoardBinding>(FragmentOnBoardBind
 
 
     override fun click() {
-        App.pref.saveBoardState()
-        findNavController() .navigateUp()
+        findNavController().navigate(R.id.noteFragment)
 
+    }
+
+    override fun NextCLicked() {
+        binding.boardPager.setCurrentItem(++binding.boardPager.currentItem, true)
+    }
+
+    override fun SkipClicked() {
+        binding.boardPager.setCurrentItem(binding.boardPager.adapter?.itemCount ?: 0, true)
     }
 }
 

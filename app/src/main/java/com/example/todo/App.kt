@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.SharedPreferences
 import com.example.todo.ui.utils.Prefs
 
-class App : Application() {
+class App() : Application() {
     private lateinit var preferences: SharedPreferences
 
     companion object{

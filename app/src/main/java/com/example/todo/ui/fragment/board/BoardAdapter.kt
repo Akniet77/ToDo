@@ -11,13 +11,12 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.todo.R
-import com.example.todo.R.id.board_btn_start
-import com.example.todo.R.id.dots_indicator
+import com.example.todo.R.id.*
 import com.example.todo.databinding.OnBoardPagerBinding
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
 
-class BoardAdapter(private val listener: ClickListener): Adapter<BoardAdapter.BoardViewHolder>() {
+  class BoardAdapter(private val listener: ClickListener): Adapter<BoardAdapter.BoardViewHolder>() {
 
 
     private val listImg =
@@ -42,6 +41,12 @@ class BoardAdapter(private val listener: ClickListener): Adapter<BoardAdapter.Bo
         holder.binding.boardBtnStart.setOnClickListener {
             listener.click()
         }
+        holder.binding.btnNext.setOnClickListener{
+            listener.NextCLicked()
+        }
+        holder.binding.btnSkip.setOnClickListener{
+            listener.SkipClicked()
+        }
     }
 
     inner class BoardViewHolder(val binding: OnBoardPagerBinding) : ViewHolder(binding.root) {
@@ -51,9 +56,11 @@ class BoardAdapter(private val listener: ClickListener): Adapter<BoardAdapter.Bo
             binding.boardTvTitle.text = listTitle[position]
             binding.boardTvDesc.text = listDes[position]
 
-            if (position == listImg.size - 1){
+            if (position == listImg.size - 1) {
                 binding.boardBtnStart.isVisible = true
-            }else{
+                binding.btnNext.isGone = true
+                binding.btnSkip.isGone = true
+            } else {
                 binding.boardBtnStart.isGone = true
             }
         }
@@ -61,5 +68,7 @@ class BoardAdapter(private val listener: ClickListener): Adapter<BoardAdapter.Bo
 
     interface ClickListener {
         fun click()
+        fun NextCLicked()
+        fun SkipClicked()
     }
 }
